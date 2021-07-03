@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:payflow/modules/login/login_controller.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_images.dart';
@@ -64,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                     padding:
                         const EdgeInsets.only(top: 40, right: 40, left: 40),
                     child: SocialLoginButton(
-                      onTap: controller.googleSignIn,
+                      onTap: () => controller.googleSignIn(context),
                     ),
                   )
                 ],
