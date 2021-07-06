@@ -21,7 +21,7 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
     controller.getAvailableCameras();
     controller.statusNotifier.addListener(() {
       if (controller.status.hasBarcode) {
-        Navigator.pushReplacementNamed(context, '/home');
+        Navigator.pushReplacementNamed(context, '/insert_boleto');
       }
     });
     super.initState();
@@ -87,7 +87,9 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
               ),
               bottomNavigationBar: SetLabelButtons(
                 primaryLabel: 'Inserir código do boleto',
-                primaryOnPressed: () {},
+                primaryOnPressed: () {
+                  Navigator.pushReplacementNamed(context, '/insert_boleto');
+                },
                 secondaryLabel: 'Adicionar da galeria',
                 secondaryOnPressed: () {},
               ),
@@ -106,7 +108,9 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
                     controller.scanWithCamera();
                   },
                   secondaryLabel: 'Digitar código',
-                  secondaryOnPressed: () {},
+                  secondaryOnPressed: () {
+                    Navigator.pushReplacementNamed(context, '/insert_boleto');
+                  },
                 );
               } else {
                 return Container();
@@ -118,13 +122,3 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
     );
   }
 }
-
-    // return BottomSheetWidget(
-    //   title: 'Não foi possível indentificar o código de barra.',
-    //   subtitle:
-    //       'Tente escanear novamente ou tente digitar o código do seu boleto.',
-    //   primaryLabel: 'Escanear novamente',
-    //   primaryOnPressed: () {},
-    //   secondaryLabel: 'Digitar código',
-    //   secondaryOnPressed: () {},
-    // );

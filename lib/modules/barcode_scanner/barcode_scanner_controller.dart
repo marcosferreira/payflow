@@ -45,7 +45,7 @@ class BarcodeScannerController {
   void scanWithCamera() {
     status = BarcodeScannerStatus.available();
     Future.delayed(Duration(seconds: 20)).then((value) {
-      if (status.hasBarcode != false) {
+      if (status.hasBarcode == false) {
         status = BarcodeScannerStatus.error('Timeout de leitura de boleto');
       }
     });
