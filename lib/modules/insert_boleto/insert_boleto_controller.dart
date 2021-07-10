@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class InsertBoletoControler {
   final formKey = GlobalKey<FormState>();
-  final BoletoModel model = BoletoModel();
+  BoletoModel model = BoletoModel();
 
   String? validateName(String? value) {
     return value?.isEmpty ?? true
@@ -34,7 +34,7 @@ class InsertBoletoControler {
     double? value,
     String? barcode,
   }) {
-    model.copyWith(
+    model = model.copyWith(
       name: name,
       dueDate: dueDate,
       value: value,
